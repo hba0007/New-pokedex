@@ -1,23 +1,29 @@
 import { useState } from "react";
 import PokemonCard from "./components/PokemonCard";
-function App () {
-
-    const [pokemonIndex,setPokemonIndex] = useState(0);
-    const previousIndex = () =>{setPokemonIndex(pokemonIndex-1)};
-    const nextIndex = () =>{setPokemonIndex(pokemonIndex+1)}
-  
-return (
-  <div>
-  {pokemonIndex >0 && <button onClick={previousIndex}>Précédent</button>}
-
-<PokemonCard pokemon={pokemonList[pokemonIndex]} />
+import NavBar from "./components/NavBar";
 
 
-{pokemonIndex< pokemonList.length-1 && <button onClick={nextIndex}>Suivant</button>}
-     </div>
-     );
-}
-export default App; 
+
+//function App() {
+ //const [pokemonIndex, setPokemonIndex] = useState(0);
+
+  //return (
+    //<div className="container">
+      //<NavBar
+        
+        //pokemonIndex={pokemonIndex}
+        //setPokemonIndex={setPokemonIndex}
+        //pokemonList={pokemonList}
+       ///>
+      //<PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      //{pokemonIndex < pokemonList.lengt - 1 && (
+        // eslint-disable-next-line no-undef
+        //<button onClick={ NextIndex } >Suivant</button>
+      //)}
+    //</div>
+  //);
+// }
+// export default App;
 
 const pokemonList = [
   {
@@ -44,22 +50,22 @@ const pokemonList = [
     name: "mew",
   },
 ];
+
+
 // import { useState } from "react";
-// import PokemonCard from "./components/PokemonCard";
-// import "./App.css";
+// import PokemonCard from "./components/PokemonCar";
 // import NavBar from "./components/NavBar";
 
 
+function App() {
+const [pokemonIndex, setPokemonIndex] = useState(0);
 
-// function App() {
-//   const [pokemonIndex, setPokemonIndex] = useState(0);
- 
-//   return (
-//     <div className="container">
-//       <NavBar pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex} />
-//       <PokemonCard pokemon={pokemonList[pokemonList]} />
-//     </div>
-//   );
-// }
+return (
+<div className="container">
+ <NavBar pokemonIndex={pokemonIndex} pokemonList={pokemonList} setPokemonIndex={setPokemonIndex} />
+<PokemonCard pokemon={pokemonList[pokemonIndex]} />
+</div>
+);
+}
 
-// export default App;
+export default App;
