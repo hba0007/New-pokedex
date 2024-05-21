@@ -1,19 +1,28 @@
 import Proptypes from "prop-types";
-import PokemonCard from "./PokemonCard";
 
 
-function NavBar ({  pokemonIndex, setPokemonIndex , pokemonList  }) {
-
-    const previousIndex = () =>{setPokemonIndex(pokemonIndex -1 )};
-    const nextIndex = () =>{setPokemonIndex(pokemonIndex +1 )}
-    console.log(pokemonIndex);
+function NavBar ({  setPokemonIndex , pokemonList  }) {
     return (
-        <div>
-  {pokemonIndex >0 && <button onClick={previousIndex}>Précédent</button>}
-  {pokemonIndex< pokemonList.length-1 && <button onClick={nextIndex}>Suivant</button>}
-     </div>
-    )
-}
+        <div className="button-container">
+        {pokemonList.map((pokemon, index) => (
+            <button key={pokemon.name} onClick={() => setPokemonIndex(index)}>
+                {pokemon.name}
+            </button>
+        ))}
+        </div>
+    );
+    }
+
+// //    const previousIndex = () =>{setPokemonIndex(pokemonIndex -1 )};
+//     const nextIndex = () =>{setPokemonIndex(pokemonIndex +1 )}
+//     console.log(pokemonIndex);
+//     return (
+//         <div>
+//   {pokemonIndex >0 && <button onClick={previousIndex}>Précédent</button>}
+//   {pokemonIndex< pokemonList.length-1 && <button onClick={nextIndex}>Suivant</button>}
+//      </div>
+//     )
+// }
 
 
 
@@ -34,16 +43,15 @@ function NavBar ({  pokemonIndex, setPokemonIndex , pokemonList  }) {
        //);
     //}
 
-//NavBar.propTypes = {
-    //PokemonCard: PokemonCard.number.isRequired,
-//     setPokemonIndex: Proptypes.func.isRequired,
-//     pokemonList: Proptypes.arrayOf(
-        
-//         PokemonCard.shape({
-//          name: Proptypes.string.isRequired,
-//          imgSrc: Proptypes.string,
-//         })
-// ).isRequired,
-// };
+NavBar.propTypes = {
+   
+    setPokemonIndex: Proptypes.func.isRequired,
+    pokemonList: Proptypes.arrayOf(
+        Proptypes.shape({
+         name: Proptypes.string.isRequired,
+         imgSrc: Proptypes.string,
+        })
+)
+};
 
 export default NavBar;

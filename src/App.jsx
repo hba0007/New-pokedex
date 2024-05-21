@@ -62,7 +62,7 @@ const [pokemonIndex, setPokemonIndex] = useState(0);
 
 return (
 <div className="container">
- <NavBar pokemonIndex={pokemonIndex} pokemonList={pokemonList} setPokemonIndex={setPokemonIndex} />
+ <NavBar  pokemonList={pokemonList} setPokemonIndex={setPokemonIndex} />
 <PokemonCard pokemon={pokemonList[pokemonIndex]} />
 </div>
 );
